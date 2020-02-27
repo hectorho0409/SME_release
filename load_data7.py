@@ -4,6 +4,8 @@ from scipy.misc import imread, imsave       # import "imread", "imsave" function
 import pickle as cp                         # load dataset
 import os                                   # build folder
 
+ROOT_TO_CIF_DIR = "../pretrain_cif/cif_rgb_dataset/"
+
 class Load_cif_test(object):
     def __init__(self, height, width, downsample, batch_size, data_route):
         
@@ -184,14 +186,14 @@ class Load_cif_test(object):
     def load_frame(self, name, shift):
   
         # route
-        route = '../pretrain_cif/cif_gray_dataset/%s/%d.png'%(self.dataset_name, name+shift)
+        route = ROOT_TO_CIF_DIR + '%s/%d.png'%(self.dataset_name, name+shift)
         return imread(route)
 
     
     def load_frame_rgb(self, name, shift):
   
         # route
-        route = '../pretrain_cif/cif_rgb_dataset/%s/%d.png'%(self.dataset_name, name+shift)
+        route = ROOT_TO_CIF_DIR + '%s/%d.png'%(self.dataset_name, name+shift)
         return imread(route)
     
     
